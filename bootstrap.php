@@ -8,6 +8,7 @@
 
         date_default_timezone_set('America/Sao_Paulo');
 
+        // obtendo as variáveis de ambiente
         $dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH);
         $dotenv->load();
 
@@ -16,13 +17,13 @@
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
         }
-
         else {
             ini_set('display_errors', 0);
             ini_set('display_startup_errors', 0);
             error_reporting(0);
         }
 
+        // conexão ao banco de dados
         try {
             $database = new Database();
         } catch (PDOException $error) {
